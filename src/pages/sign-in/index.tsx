@@ -1,11 +1,11 @@
-import { useState } from "react";
+// import { useState } from "react";
 // import Layout from "../../../layout/website";
 // import Section from "../../../layout/global/Section";
 // import Container from "../../../layout/global/Container";
 
 // import { Label, Input, Button } from "../../../components";
 // import axiosInstance from "../../../lib/axios";
-import { Facebook } from "lucide-react";
+// import { Facebook } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {
@@ -23,13 +23,13 @@ import { z } from "zod";
 import { Link } from "react-router-dom";
 
 function LoginPage() {
-  const [formData, setFormData] = useState({
-    email: "",
-    password: "",
-  });
+  // const [formData, setFormData] = useState({
+  //   email: "",
+  //   password: "",
+  // });
 
   const onSubmit = async (values: z.infer<typeof loginSchema>) => {
-    if (formData.email.trim() == "" || formData.password.trim() == "") {
+    if (values.email.trim() == "" || values.password.trim() == "") {
       return alert("Please enter email and password");
     }
     // try {

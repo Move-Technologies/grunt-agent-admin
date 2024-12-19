@@ -1,4 +1,3 @@
-import React from "react";
 import { ContainerFull } from "./Container";
 import logo from "../assets/grunt_logo.png";
 import { Link } from "react-router-dom";
