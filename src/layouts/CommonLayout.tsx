@@ -5,7 +5,7 @@ export function CommonLayout() {
   return (
     <div className="flex flex-col">
       <Navbar />
-      <main className="mt-16 flex flex-col  justify-center items-center h-[calc(100vh-64px)] gap-10">
+      <main className="mt-16 flex flex-col  justify-center items-center gap-10">
         <Outlet />
       </main>
     </div>
