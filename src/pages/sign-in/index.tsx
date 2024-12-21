@@ -16,22 +16,24 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import { useForm } from "react-hook-form";
+import { useForm, useWatch } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { loginSchema } from "@/data/schema/loginSchema";
 import { z } from "zod";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function LoginPage() {
   // const [formData, setFormData] = useState({
   //   email: "",
   //   password: "",
   // });
+  const navigate = useNavigate();
 
   const onSubmit = async (values: z.infer<typeof loginSchema>) => {
     if (values.email.trim() == "" || values.password.trim() == "") {
       return alert("Please enter email and password");
     }
+    navigate("/");
     // try {
     //   const response = await axiosInstance.post(
     //     "/login",
@@ -64,6 +66,10 @@ function LoginPage() {
       password: "",
     },
   });
+  const a = form.getValues();
+
+  console.log(a);
+  console.log(form.formState.errors);
 
   return (
     <div className="max-w-md w-full bg-white p-6 pt-5 dark:border-slate-800 dark:bg-slate-950">
@@ -78,14 +84,14 @@ function LoginPage() {
             <FormField
               control={form.control}
               name="email"
-              render={() => (
+              render={({ field }) => (
                 <FormItem>
                   <FormLabel htmlFor="emial-address">Email Address</FormLabel>
                   <FormControl>
                     <Input
                       placeholder="example@email.com"
                       id="emial-address"
-                      name="email"
+                      {...field}
                     />
                   </FormControl>
                   <FormMessage />
@@ -95,15 +101,11 @@ function LoginPage() {
             <FormField
               control={form.control}
               name="password"
-              render={() => (
+              render={({ field }) => (
                 <FormItem>
                   <FormLabel htmlFor="password">Password</FormLabel>
                   <FormControl>
-                    <Input
-                      placeholder="********"
-                      id="password"
-                      name="password"
-                    />
+                    <Input placeholder="********" id="password" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>

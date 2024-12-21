@@ -1,5 +1,4 @@
 import { cn } from "@/lib/utils";
-import { Navbar } from "../components";
 import { Outlet, useLocation } from "react-router-dom";
 
 export function CommonLayout() {
@@ -7,7 +6,6 @@ export function CommonLayout() {
   console.log(pathname);
   return (
     <div className="flex flex-col">
-      <Navbar />
       <main
         className={cn(
           "mt-16 flex flex-col  justify-center items-center  gap-10",
