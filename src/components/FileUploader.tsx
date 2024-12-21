@@ -1,15 +1,15 @@
 import { useCallback } from "react";
 import { useDropzone } from "react-dropzone";
-import blankImageIllustration from "@/assets/blank_image.svg";
 import { cn } from "@/lib/utils";
 
 export function FileComponent({
-  imageUrl,
-  isImageGenerating,
   setUploadedFile,
   file,
+}: {
+  setUploadedFile: any;
+  file: any;
 }) {
-  const onDrop = useCallback((acceptedFiles) => {
+  const onDrop = useCallback((acceptedFiles: any) => {
     // Do something with the files
     console.log(acceptedFiles[0]);
     setUploadedFile(acceptedFiles[0]);
@@ -21,10 +21,8 @@ export function FileComponent({
 
   return (
     <div
-      className={`flex w-full items-center justify-center text-center ${
-        isImageGenerating ? "pointer-events-none opacity-50" : ""
-      }`}
-      htmlFor="imageFile"
+      className={`flex w-full items-center justify-center text-center`}
+      //   htmlFor="imageFile"
       {...getRootProps()}
     >
       <div className="flex flex-col items-center justify-center py-2 w-full">

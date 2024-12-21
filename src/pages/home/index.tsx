@@ -10,8 +10,8 @@ export function Home() {
   }, []);
   return (
     <div className="flex flex-col justify-between gap-10">
-      {agents.map((agent, index) => (
-        <Card className="w-full">
+      {agents.map((agent: { value: string }, index: number) => (
+        <Card className="w-full" key={`${agent.value}_${index}`}>
           <span className="border rounded-lg px-3 py-1.5 text-[#7D7D7D] text-xs font-semibold flex items-center gap-2 w-fit mb-3">
             <Map width={15} height={15} />
             {agent.value}
