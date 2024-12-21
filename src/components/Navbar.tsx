@@ -1,7 +1,7 @@
 import { ContainerFull } from "./Container";
 import logo from "../assets/grunt_logo.png";
 import { Link } from "react-router-dom";
-import { Button } from "./ui/button";
+import { Button, buttonVariants } from "./ui/button";
 import { ArrowLeft, ArrowRight, Phone } from "lucide-react";
 export function Navbar() {
   return (
@@ -40,12 +40,14 @@ export function Navbar() {
             >
               Make test call <Phone />
             </Button>
-            <Button
-              className="text-white bg-primary hover:bg-primary/90 hover:text-white"
-              variant={"outline"}
+            <Link
+              to={"/run-agent"}
+              className={`text-white bg-primary hover:bg-primary/90 hover:text-white ${buttonVariants(
+                { variant: "outline" }
+              )}`}
             >
               Run Agent <ArrowRight />
-            </Button>
+            </Link>
           </div>
         </div>
       </ContainerFull>{" "}
